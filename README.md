@@ -1,6 +1,8 @@
 # nuxt-app
 
-A client app with nuxtjs.
+A client application in Nodejs with Nuxtjs, a Vue framework.
+
+[![ci](https://github.com/gmarcha/nuxt-app/actions/workflows/ci.yml/badge.svg)](https://github.com/gmarcha/nuxt-app/actions/workflows/ci.yml)
 
 ## Build Setup
 
