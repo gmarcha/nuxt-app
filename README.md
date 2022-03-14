@@ -74,3 +74,57 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+## Tools
+
+- **HTML** and **CSS**\
+    `HTML` is a markup language allowing to structure web contents. `CSS` is a stylesheet language used to manage presentation of a document written in a markup language. These two languages are fundamentals and interdependents to build user-interfaces in a web environment.\
+    *Links to mozilla HTML [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML) and to mozilla CSS [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS).*
+
+- **JavaScript**\
+    `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It is also used in a `Node.js` environment to develop any kind of application.\
+    *Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript).*
+
+- **TypeScript**\
+    `TypeScript` is a superset of `JavaScript`. It enforces static typechecking. A strong typed language facilitates error catching and avoids some misleading behaviors.\
+    *Link to [documentation](https://www.typescriptlang.org/docs/).*
+
+---
+
+- **Node.js**\
+    `NuxtJs` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment. It uses asynchronous programming and blocking/non-blocking concepts to perform similar tasks.\
+    *Links to [guide](https://nodejs.dev/learn) and [documentation](https://nodejs.org/en/docs/).*
+
+- **Vue.js** *(v2.x)*\
+    `Vue.js` is a modern web-component `JavaScript` framework. It uses reusable block of code called `components` to build an user-interface application.\
+    *Links to vue [documentation](https://v2.vuejs.org/v2/guide/), to vue-router [documentation](https://router.vuejs.org/guide/) and to vuex [documentation](https://vuex.vuejs.org/) (vue's state management system, also known as a 'store').*
+
+- **NuxtJS** *(v2.x)*\
+    `NuxtJS` is a `Vue.js` framework. Basic functionnalities are directly built-in in the framework and available out-of-the-box (a vue-router or a vuex store for example). Package managers allow to easily setup a `NuxtJS` project (with `npm init nuxt-app <project-name>` or `yarn create nuxt-app <project-name>`).\
+    *Link to [documentation](https://nuxtjs.org/docs/get-started/installation).*
+
+---
+
+- **Vuetify** *(v2.x)*\
+    `Vuetify` is a user-interface `Vue.js` framework offering ready to use Material Components (following `Material Design specification`). Components are customisables and responsives (adapting to different screen sizes).\
+    *Link to [documentation](https://vuetifyjs.com/en/introduction/why-vuetify/).*
+
+--- 
+
+- **Material Design**\
+    `Material Design` is a design guideline made by `Google`. Its goal is to enforce consistency between different plateforms. `Material` also concernes component system and design tools.\
+    *Link to [`Material Design`](https://material.io/design).*
+
+---
+
+- **Unsplash**\
+    `Unsplash` is an image datastock proposing tons of free photographies and images. They are protected by `Unsplash`'s in-house license, allowing non-commercial and commercial usages (except to create a competing business to `Unsplash`).\
+    *Link to [`Unsplash`](https://unsplash.com/).*
+
+## Author
+
+[@gmarcha](https://github.com/gmarcha)
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
