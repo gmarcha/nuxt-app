@@ -4,6 +4,10 @@ A client application in Nodejs with Nuxtjs, a Vue framework.
 
 [![ci](https://github.com/gmarcha/nuxt-app/actions/workflows/ci.yml/badge.svg)](https://github.com/gmarcha/nuxt-app/actions/workflows/ci.yml)
 
+## Requirements
+
+- Install [`nodejs`](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions) (shipped with `npm`) and [`yarn`](https://yarnpkg.com/getting-started/install).
+
 ## Build Setup
 
 ```bash
