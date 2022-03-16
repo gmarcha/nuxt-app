@@ -1,6 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+
+  server: {
+    host: process.env.HOST,
+    port: process.env.PORT
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - tutor-client',
