@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  client:
+    image: node:16-alpine
+    working_dir: /app
+    entrypoint: ["yarn", "dev"]
+    volumes:
+      - ./:/app
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      PORT: ${PORT}
+    restart: unless-stopped
