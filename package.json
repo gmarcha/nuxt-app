@@ -10,8 +10,7 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
-    "prepare": "husky install"
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint --cache",
@@ -38,7 +37,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-vue": "^8.2.0",
-    "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.1"
   }
