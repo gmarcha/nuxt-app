@@ -85,29 +85,27 @@ More information about the usage of this directory in [the documentation](https:
    `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It is also used in a `Node.js` environment to develop any kind of application.\
    _Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
 
+- **Node.js**\
+   `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment. It uses asynchronous programming and blocking/non-blocking concepts to perform similar tasks.\
+   _Links to [guide](https://nodejs.dev/learn) and [documentation](https://nodejs.org/en/docs/)._
+
 - **TypeScript**\
    `TypeScript` is a superset of `JavaScript`. It enforces static typechecking. A strong typed language facilitates error catching and avoids some misleading behaviors.\
    _Link to [documentation](https://www.typescriptlang.org/docs/)._
 
 ---
 
-- **Node.js**\
-   `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment. It uses asynchronous programming and blocking/non-blocking concepts to perform similar tasks.\
-   _Links to [guide](https://nodejs.dev/learn) and [documentation](https://nodejs.org/en/docs/)._
-
 - **Vue.js** _(v2.x)_\
    `Vue.js` is a modern web-component `JavaScript` framework. It uses reusable block of code called `components` to build an user-interface application.\
    _Links to vue [documentation](https://v2.vuejs.org/v2/guide/), to vue-router [documentation](https://router.vuejs.org/guide/) and to vuex [documentation](https://vuex.vuejs.org/) (vue's state management system, also known as a 'store')._
 
-- **NuxtJS** _(v2.x)_\
-   `NuxtJS` is a `Vue.js` framework. Basic functionnalities are directly built-in in the framework and available out-of-the-box (a vue-router or a vuex store for example). Package managers allow to easily setup a `NuxtJS` project (with `npm init nuxt-app <project-name>` or `yarn create nuxt-app <project-name>`).\
-   _Link to [documentation](https://nuxtjs.org/docs/get-started/installation)._
-
----
-
 - **Vuetify** _(v2.x)_\
    `Vuetify` is a user-interface `Vue.js` framework offering ready to use Material Components (following `Material Design specification`). Components are customisables and responsives (adapting to different screen sizes).\
    _Link to [documentation](https://vuetifyjs.com/en/introduction/why-vuetify/)._
+
+- **NuxtJS** _(v2.x)_\
+   `NuxtJS` is a `Vue.js` framework. Basic functionnalities are directly built-in in the framework and available out-of-the-box (a vue-router or a vuex store for example). Package managers allow to easily setup a `NuxtJS` project (with `npm init nuxt-app <project-name>` or `yarn create nuxt-app <project-name>`).\
+   _Link to [documentation](https://nuxtjs.org/docs/get-started/installation)._
 
 ---
 
