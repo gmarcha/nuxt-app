@@ -82,11 +82,11 @@ More information about the usage of this directory in [the documentation](https:
    _Links to mozilla HTML [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML) and to mozilla CSS [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)._
 
 - **JavaScript**\
-   `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It is also used in a `Node.js` environment to develop any kind of application.\
+   `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It implements closures, object-oriented programming based on prototypes and asynchronous calls returning promises.\
    _Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
 
 - **Node.js**\
-   `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment. It uses asynchronous programming and blocking/non-blocking concepts to perform similar tasks.\
+   `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment.\
    _Links to [guide](https://nodejs.dev/learn) and [documentation](https://nodejs.org/en/docs/)._
 
 - **TypeScript**\
