@@ -109,6 +109,12 @@ More information about the usage of this directory in [the documentation](https:
 
 ---
 
+- **Axios**\
+  Axios is a promise based HTTP client. It allows to perform HTTP requests either in a browser (using `XMLHttpRequest` internally) or in a `Node.js` environment (with `http` library).\
+  _Links to axios [documentation](https://axios-http.com/docs/intro) and to nuxt/axios [documentation](https://axios.nuxtjs.org/)._
+
+---
+
 - **Material Design**\
    `Material Design` is a design guideline made by `Google`. Its goal is to enforce consistency between different plateforms. `Material` also concernes component system and design tools.\
    _Link to [`Material Design`](https://material.io/design)._
