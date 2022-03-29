@@ -82,16 +82,20 @@ More information about the usage of this directory in [the documentation](https:
    _Links to mozilla HTML [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML) and to mozilla CSS [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)._
 
 - **JavaScript**\
-   `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It implements closures, object-oriented programming based on prototypes and asynchronous calls returning promises.\
-   _Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
+   `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It implements closures, object-oriented programming based on prototypes and asynchronous programming based on promises.\
+   _Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript). Additional link to a stackoverflow's post about [closures](https://stackoverflow.com/questions/111102/how-do-javascript-closures-work)._
+
+- **TypeScript**\
+   `TypeScript` is a superset of `JavaScript` adding static typing and intellisense support. It facilitates code debugging and avoids unexpected behaviors.\
+   _Link to [documentation](https://www.typescriptlang.org/docs/)._
 
 - **Node.js**\
    `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment.\
    _Links to [guide](https://nodejs.dev/learn) and [documentation](https://nodejs.org/en/docs/)._
 
-- **TypeScript**\
-   `TypeScript` is a superset of `JavaScript`. It enforces static typechecking. A strong typed language facilitates error catching and avoids some misleading behaviors.\
-   _Link to [documentation](https://www.typescriptlang.org/docs/)._
+- **npm** or/and **yarn**\
+  `npm` and `yarn` are package managers used to manage node dependencies. It allows to install software or to manage an application dependencies in a `package.json` file.\
+  _Links to [npm documentation](https://docs.npmjs.com/) and [yarn documentation](https://yarnpkg.com/getting-started)._
 
 ---
 
