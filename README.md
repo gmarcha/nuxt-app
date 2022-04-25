@@ -97,11 +97,11 @@ More information about the usage of this directory in [the documentation](https:
 
 - **Vue.js** _(v2.x)_\
    `Vue.js` is a modern web-component `JavaScript` framework. It uses reusable block of code called `components` to build an user-interface application.\
-   _Links to vue [documentation](https://v2.vuejs.org/v2/guide/), to vue-router [documentation](https://router.vuejs.org/guide/) and to vuex [documentation](https://vuex.vuejs.org/) (vue's state management system, also known as a 'store')._
+   _Links to vue [documentation](https://v2.vuejs.org/v2/guide/), to vue-router [documentation](https://router.vuejs.org/guide/) and to vuex [documentation](https://vuex.vuejs.org/) (vue's global state management system, also known as a 'store')._
 
 - **NuxtJS** _(v2.x)_\
    `NuxtJS` is a `Vue.js` framework. Basic functionnalities are directly built-in in the framework and available out-of-the-box (a vue-router or a vuex store for example). Package managers allow to easily setup a `NuxtJS` project (with `npm init nuxt-app <project-name>` or `yarn create nuxt-app <project-name>`).\
-   _Link to [documentation](https://nuxtjs.org/docs/get-started/installation)._
+   _Links to [documentation](https://nuxtjs.org/docs/get-started/installation), to typescript module [documentation](https://typescript.nuxtjs.org/) and to axios module [documentation](https://axios.nuxtjs.org/)._
 
 ---
 
