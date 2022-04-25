@@ -82,22 +82,30 @@ More information about the usage of this directory in [the documentation](https:
    _Links to mozilla HTML [documentation](https://developer.mozilla.org/en-US/docs/Web/HTML) and to mozilla CSS [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)._
 
 - **JavaScript**\
-   `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It is also used in a `Node.js` environment to develop any kind of application.\
-   _Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
+   `JavaScript` is an interpreted (or just-in-time compiled) programming language used as a scripting language in a web browser. It implements closures, object-oriented programming based on prototypes and asynchronous programming based on promises.\
+   _Link to mozilla [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript). Additional link to a stackoverflow's post about [closures](https://stackoverflow.com/questions/111102/how-do-javascript-closures-work)._
 
 - **TypeScript**\
-   `TypeScript` is a superset of `JavaScript`. It enforces static typechecking. A strong typed language facilitates error catching and avoids some misleading behaviors.\
+   `TypeScript` is a superset of `JavaScript` adding static typing and intellisense support. It facilitates code debugging and avoids unexpected behaviors.\
    _Link to [documentation](https://www.typescriptlang.org/docs/)._
 
----
-
 - **Node.js**\
-   `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment. It uses asynchronous programming and blocking/non-blocking concepts to perform similar tasks.\
+   `Node.js` is an open-source and cross-plateform `JavaScript` runtime environment. It allows to run single-threaded `JavaScript` application in any environment.\
    _Links to [guide](https://nodejs.dev/learn) and [documentation](https://nodejs.org/en/docs/)._
+
+- **npm** or/and **yarn**\
+  `npm` and `yarn` are package managers used to manage node dependencies. It allows to install software or to manage an application dependencies in a `package.json` file.\
+  _Links to [npm documentation](https://docs.npmjs.com/) and [yarn documentation](https://yarnpkg.com/getting-started)._
+
+---
 
 - **Vue.js** _(v2.x)_\
    `Vue.js` is a modern web-component `JavaScript` framework. It uses reusable block of code called `components` to build an user-interface application.\
    _Links to vue [documentation](https://v2.vuejs.org/v2/guide/), to vue-router [documentation](https://router.vuejs.org/guide/) and to vuex [documentation](https://vuex.vuejs.org/) (vue's global state management system, also known as a 'store')._
+
+- **Vuetify** _(v2.x)_\
+   `Vuetify` is a user-interface `Vue.js` framework offering ready to use Material Components (following `Material Design specification`). Components are customisables and responsives (adapting to different screen sizes).\
+   _Link to [documentation](https://vuetifyjs.com/en/introduction/why-vuetify/)._
 
 - **NuxtJS** _(v2.x)_\
    `NuxtJS` is a `Vue.js` framework. Basic functionnalities are directly built-in in the framework and available out-of-the-box (a vue-router or a vuex store for example). Package managers allow to easily setup a `NuxtJS` project (with `npm init nuxt-app <project-name>` or `yarn create nuxt-app <project-name>`).\
@@ -105,9 +113,9 @@ More information about the usage of this directory in [the documentation](https:
 
 ---
 
-- **Vuetify** _(v2.x)_\
-   `Vuetify` is a user-interface `Vue.js` framework offering ready to use Material Components (following `Material Design specification`). Components are customisables and responsives (adapting to different screen sizes).\
-   _Link to [documentation](https://vuetifyjs.com/en/introduction/why-vuetify/)._
+- **Axios**\
+  Axios is a promise based HTTP client. It allows to perform HTTP requests either in a browser (using `XMLHttpRequest` internally) or in a `Node.js` environment (with `http` library).\
+  _Links to axios [documentation](https://axios-http.com/docs/intro) and to nuxt/axios [documentation](https://axios.nuxtjs.org/)._
 
 ---
 
