@@ -117,11 +117,19 @@ More information about the usage of this directory in [the documentation](https:
   Axios is a promise based HTTP client. It allows to perform HTTP requests either in a browser (using `XMLHttpRequest` internally) or in a `Node.js` environment (with `http` library).\
   _Links to axios [documentation](https://axios-http.com/docs/intro) and to nuxt/axios [documentation](https://axios.nuxtjs.org/)._
 
+- **DayJS**\
+   DayJS is a lightweight library used to format date and time.\
+   _Links to [documentation](https://day.js.org/docs/en/installation/installation)._
+
 ---
 
 - **Material Design**\
    `Material Design` is a design guideline made by `Google`. Its goal is to enforce consistency between different plateforms. `Material` also concernes component system and design tools.\
    _Link to [`Material Design`](https://material.io/design)._
+
+- **Figma**\
+   `Figma` is a vector graphics editor and prototyping tool. It allows to draw design models collaboratively.\
+   _Link to [documentation](https://www.figma.com/)._
 
 ---
 
