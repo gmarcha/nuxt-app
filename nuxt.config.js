@@ -1,12 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-
-  server: {
-    host: process.env.HOST,
-    port: process.env.PORT
-  },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - tutor-client',
@@ -16,7 +10,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
@@ -24,10 +18,15 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['animate.css/animate.min.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '@/plugins/filters',
+    '@/plugins/device',
+    '@/plugins/refresh',
+    // { src: '~/plugins/persistedState', ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -40,17 +39,17 @@ export default {
     '@nuxtjs/vuetify',
   ],
 
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {},
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/dayjs',
+    'cookie-universal-nuxt',
   ],
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -59,11 +58,11 @@ export default {
       dark: true,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.amber.base,
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          secondary: colors.blue.darken2,
           info: colors.teal.lighten1,
-          warning: colors.amber.base,
+          warning: colors.amber.darken3,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
@@ -71,6 +70,43 @@ export default {
     },
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  server: {
+    host: process.env.CLIENT_HOST,
+    port: process.env.CLIENT_PORT,
+  },
+
+  // // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  // axios: {
+  //   // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+  //   baseURL: 'https://tutor.localhost/api/v2/',
+  // },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: 'https://tutor.localhost/api/v2/',
+    },
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: 'http://goswagger:5000/v2/',
+    },
+  },
+
+  axios: {
+    proxy: true,
+    credentials: true,
+    prefix: 'https://tutor.localhost/api/v2/',
+  },
+
+  proxy: {
+    '/api/v2/': 'https://tutor.localhost/',
+  },
+
+  dayjs: {
+    locales: ['fr'],
+    defaultLocale: 'fr',
+    defaultTimeZone: 'Europe/Paris',
+    plugins: ['utc', 'timezone', 'relativeTime', 'advancedFormat'],
+  },
 }
