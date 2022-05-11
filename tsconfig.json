@@ -15,7 +15,16 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "@nuxtjs/axios", "@types/node"]
+    "types": [
+      "@types/node",
+      "@nuxt/types",
+      "@nuxtjs/axios",
+      "@nuxtjs/proxy",
+      "@nuxtjs/dayjs",
+      "cookie-universal-nuxt",
+      "vuex-persist",
+      "vue-typed-mixins"
+    ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
