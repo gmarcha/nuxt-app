@@ -99,7 +99,7 @@ More information about the usage of this directory in [the documentation](https:
 
 ---
 
-- **Vue.js** _(v2.x)_\
+- **Vue.js** _(v2.x)_ with **Vuex** _(v4.x)_\
    `Vue.js` is a modern web-component `JavaScript` framework. It uses reusable block of code called `components` to build an user-interface application.\
    _Links to vue [documentation](https://v2.vuejs.org/v2/guide/), to vue-router [documentation](https://router.vuejs.org/guide/) and to vuex [documentation](https://vuex.vuejs.org/) (vue's global state management system, also known as a 'store')._
 
