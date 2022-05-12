@@ -1,92 +1,141 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
+  <v-app>
+    <v-app-bar app height="64">
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-menu transition="slide-x-reverse-transition" offset-y>
+        <template #activator="{ on, attrs }">
+          <v-btn v-bind="attrs" v-on="on">
+            <v-avatar>
+              <v-img :src="imagePath"></v-img>
+            </v-avatar>
+            <v-col>
+              {{ login }}
+            </v-col>
+          </v-btn>
+        </template>
+
+        <v-list class="mt-6">
+          <v-dialog
+            v-if="isTutor"
+            v-model="userEventsDialog"
+            :fullscreen="isMobile"
+            max-width="650"
+          >
+            <template #activator="{ on, attrs }">
+              <v-list-item v-bind="attrs" v-on="on">
+                <v-list-item-action>
+                  <v-icon>mdi-calendar-text</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>Mes événements</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+            <UserEventsDialog
+              @close="userEventsDialog = false"
+            ></UserEventsDialog>
+          </v-dialog>
+          <v-dialog
+            v-if="isAdmin"
+            v-model="adminDialog"
+            :fullscreen="isMobile"
+            max-width="650"
+          >
+            <template #activator="{ on, attrs }">
+              <v-list-item v-bind="attrs" v-on="on" @click="fetchUsers">
+                <v-list-item-action>
+                  <v-icon>mdi-account-supervisor</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>Gestion des tuteurs</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
+            <AdminDialog @close="adminDialog = false"></AdminDialog>
+          </v-dialog>
+          <v-list-item @click="logoutRedirect">
+            <v-list-item-action>
+              <v-icon>mdi-logout</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Déconnexion</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <Nuxt />
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+
+export default Vue.extend({
   name: 'DefaultLayout',
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    }
+
+  data: () => ({
+    title: '🐝 La ruche',
+    userEventsDialog: false,
+    adminDialog: false,
+  }),
+
+  computed: {
+    ...mapState({
+      isMobile: (state: any): boolean => state.isMobile,
+      login: (state: any): string => state.user.authenticatedUser.login,
+      imagePath: (state: any): string => state.user.authenticatedUser.imagePath,
+    }),
+    ...mapGetters({
+      isTutor: 'user/authenticatedUserIsTutor',
+      isAdmin: 'user/authenticatedUserIsTutor',
+    }),
   },
-}
+
+  methods: {
+    ...mapMutations({
+      setSnackbar: 'snackbar/SET_SHOW',
+      setSnackbarColor: 'snackbar/SET_COLOR',
+      setSnackbarIcon: 'snackbar/SET_ICON',
+      setSnackbarMessage: 'snackbar/SET_MESSAGE',
+    }),
+    ...mapActions({
+      logout: 'auth/logout',
+    }),
+    logoutRedirect() {
+      this.logout()
+      this.$router.replace('/login')
+    },
+    async fetchUsers() {
+      try {
+        await this.$store.dispatch('users/fetchUsers')
+        await this.$store.dispatch('users/fetchRoles')
+      } catch (err) {
+        this.setSnackbarColor('red')
+        this.setSnackbarIcon('mdi-alert-circle')
+        this.setSnackbarMessage('Erreur lors de la récuperation des étudiants.')
+        this.setSnackbar(true)
+      }
+    },
+  },
+})
 </script>
+
+<style>
+html {
+  overflow: hidden;
+}
+.accent-text {
+  color: #ffffff !important;
+}
+.v-menu__content {
+  box-shadow: none;
+}
+.v-input__icon--prepend {
+  font-size: 12px;
+}
+</style>
