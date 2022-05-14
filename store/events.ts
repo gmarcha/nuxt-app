@@ -206,7 +206,7 @@ export const mutations: MutationTree<EventsState> = {
   UNSUBSCRIBE_AUTH_USER: (state, user: IUser) => {
     state.selectedEvent.edges.users = state.selectedEvent.edges.users.filter(
       (el: IUser) => el.id !== user.id
-    )
+    ) || []
   },
 }
 
