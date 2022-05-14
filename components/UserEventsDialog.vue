@@ -9,21 +9,32 @@
     </v-toolbar>
     <v-card class="pa-4">
       <v-card outlined rounded>
-        <v-list>
-          <v-list-item v-for="event in authUserEvents" :key="event.id">
-            <v-btn block :color="getEventColor(event)">
-              <v-row>
-                <v-col cols="2" align-self="center" class="text-left">
-                  {{ event.name }}
-                </v-col>
-                <v-col cols="9" align-self="center" class="text-right">
-                  {{ getEventDateTime(event) }}
-                </v-col>
-                <v-col cols="1" icon @click="unsubscribeAuthUser(event)">
-                  <v-icon>mdi-close</v-icon>
-                </v-col>
-              </v-row>
-            </v-btn>
+        <v-list class="pa-0">
+          <v-list-item
+            v-for="event in authUserEvents"
+            :key="event.id"
+            two-line
+            class="mx-2 my-2 borderEvent"
+            :style="
+              `background-color: ${getEventColor(event)};` +
+              `border-color: ${getEventColor(event)};`
+            ">
+            <v-list-content>
+              <v-list-item-title>{{ event.name }}</v-list-item-title>
+              <v-list-item-subtitle class="text-wrap">{{ getEventDateTime(event) }}</v-list-item-subtitle>
+            </v-list-content>
+            <v-spacer/>
+            <v-list-item-action>
+              <v-dialog max-width="256">
+                <template #activator="{ on, attrs }">
+                  <v-btn v-bind="attrs" icon v-on="on" @click="selectedEvent = event">
+                    <v-icon>mdi-delete</v-icon>
+                  </v-btn>
+                </template>
+                <DeleteDialog :title="'l\'inscription à ' + event.name" :action="unsubscribeAuthUser">
+                </DeleteDialog>
+              </v-dialog>
+            </v-list-item-action>
           </v-list-item>
         </v-list>
       </v-card>
@@ -38,6 +49,10 @@ import { eventMethods } from '@/mixins/eventMethods'
 import { IEvent } from '@/store/events'
 
 export default mixins(eventMethods).extend({
+  data: () => ({
+    selectedEvent: {} as IEvent,
+  }),
+
   computed: {
     ...mapGetters({
       authUserEvents: 'user/authenticatedUserEvents',
@@ -51,9 +66,9 @@ export default mixins(eventMethods).extend({
       setSnackbarIcon: 'snackbar/SET_ICON',
       setSnackbarMessage: 'snackbar/SET_MESSAGE',
     }),
-    async unsubscribeAuthUser(event: IEvent) {
+    async unsubscribeAuthUser() {
       try {
-        await this.$store.dispatch('user/unsubscribeAuthUser', event)
+        await this.$store.dispatch('user/unsubscribeAuthUser', this.selectedEvent)
         this.setSnackbarColor('green')
         this.setSnackbarIcon('mdi-checkbox-marked-circle')
         this.setSnackbarMessage('Désincription réussie.')
@@ -70,3 +85,9 @@ export default mixins(eventMethods).extend({
   },
 })
 </script>
+
+<style scoped>
+.borderEvent {
+  border-radius: 4px;
+}
+</style>
