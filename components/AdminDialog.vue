@@ -75,6 +75,8 @@
         :search="search"
         :loading="areUsersLoading"
         loading-text="Chargement des utilisateurs..."
+        no-results-text="Aucun résultat ne correspond à la recherche."
+        mobile-breakpoint="0"
         :footer-props="{
           'items-per-page-text': 'Utilisateurs par page',
           'items-per-page-all-text': 'Tous',
@@ -86,10 +88,12 @@
           <span class="ml-8">{{ header.text }}</span>
         </template>
         <template #[`item.login`]="{ item }">
-          <v-avatar size="24" class="mr-1">
-            <v-img :src="item.imagePath"></v-img>
-          </v-avatar>
-          {{ item.login }}
+          <div class="d-flex">
+            <v-avatar size="24" class="mr-2">
+              <v-img :src="item.imagePath"></v-img>
+            </v-avatar>
+            {{ item.login }}
+          </div>
         </template>
         <template #[`item.displayName`]="{ item }">
           <v-edit-dialog
@@ -98,7 +102,7 @@
             save-text="Enregistrer"
             @save="updateUser(item)"
           >
-            {{ item.displayName }}
+            <span class="text-no-wrap">{{ item.displayName }}</span>
             <template #input>
               <v-text-field
                 :value="item.displayName"
@@ -125,7 +129,7 @@
               :color="getRoleNameColor(role.name)"
               label
               small
-              class="mr-2"
+              class="ma-2"
             >
               {{ role.name.charAt(0).toUpperCase() + role.name.slice(1) }}
             </v-chip>
@@ -134,9 +138,10 @@
                 :value="getUserRolesNames(user)"
                 :items="userRolesList"
                 label="Modifier"
+                :menu-props="{ top: true, offsetY: true }"
                 hide-details
                 multiple
-                @input="(val) => (newUserRoles = val)"
+                @input="val => newUserRoles = val"
               >
                 <template #selection="{ item: roleName }">
                   <v-chip
@@ -176,11 +181,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import mixins from 'vue-typed-mixins'
 import { mapState, mapGetters, mapMutations } from 'vuex'
+import { userMethods } from  '@/mixins/userMethods'
 import { IRole, IUser } from '@/store/user'
 
-export default Vue.extend({
+export default mixins(userMethods).extend({
   data: () => ({
     valid: true,
     search: '',
@@ -208,9 +214,6 @@ export default Vue.extend({
       roles: (state: any): IRole[] => state.users.roles,
     }),
     ...mapGetters({
-      roleAdmin: 'users/roleAdmin',
-      roleCalendar: 'users/roleCalendar',
-      roleTutor: 'users/roleTutor',
       areUsersLoading: 'users/areUsersLoading',
     }),
   },
@@ -222,49 +225,6 @@ export default Vue.extend({
       setSnackbarIcon: 'snackbar/SET_ICON',
       setSnackbarMessage: 'snackbar/SET_MESSAGE',
     }),
-    getUserRoles(user: IUser): IRole[] {
-      return user.edges?.roles || []
-    },
-    getRolesSortedByName(roles: IRole[]): IRole[] {
-      return (
-        [...roles]?.sort((a: IRole, b: IRole) => (a.name < b.name ? 1 : -1)) ||
-        []
-      )
-    },
-    getRolesNames(roles: IRole[]): string[] {
-      return (
-        roles?.map(
-          (el: IRole) => el.name.charAt(0).toUpperCase() + el.name.slice(1)
-        ) || []
-      )
-    },
-    getUserRolesNames(user: IUser): string[] {
-      return this.getRolesNames(this.getUserRoles(user))
-    },
-    getRoleNameColor(roleName: string): string {
-      switch (roleName.toLowerCase()) {
-        case 'tutor':
-          return 'primary'
-        case 'calendar':
-          return 'blue'
-        case 'admin':
-          return 'purple'
-        default:
-          return 'grey'
-      }
-    },
-    getRoleByName(roleName: string): IRole {
-      switch (roleName.toLowerCase()) {
-        case 'admin':
-          return this.roleAdmin
-        case 'calendar':
-          return this.roleCalendar
-        case 'tutor':
-          return this.roleTutor
-        default:
-          return {} as IRole
-      }
-    },
     async createUser() {
       if (!(this.$refs.form as any).validate()) {
         this.valid = false
@@ -307,7 +267,10 @@ export default Vue.extend({
       roleName: string,
       role: IRole
     ) {
-      if (!userRoles.includes(roleName) && this.newUserRoles.includes(roleName))
+      if (
+        !userRoles.includes(roleName) &&
+        this.newUserRoles.includes(roleName)
+      )
         await this.$store.dispatch('users/setRole', { userID, role })
       else if (
         userRoles.includes(roleName) &&
