@@ -123,6 +123,17 @@ More information about the usage of this directory in [the documentation](https:
 
 ---
 
+- **ESLint**\
+  `ESLint` is a javascript linter. It parses source code to spot bad constructions and avoid runtime errors.\
+  _Link to [documentation](https://eslint.org/docs/user-guide/getting-started)._
+
+- **Prettier**\
+  `Prettier` is a code formatter. It applies specific rules to enforce a common style pattern trough source code.\
+  It supports `JavaScript`, `TypeScript`, `Vue` single-file components, various `CSS` preprocessors, etc...\
+  _Link to [documentation](https://prettier.io/docs/en/index.html)._
+
+---
+
 - **Material Design**\
    `Material Design` is a design guideline made by `Google`. Its goal is to enforce consistency between different plateforms. `Material` also concernes component system and design tools.\
    _Link to [`Material Design`](https://material.io/design)._
