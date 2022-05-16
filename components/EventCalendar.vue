@@ -69,25 +69,13 @@
         event-start="startAt"
         event-end="endAt"
         :event-color="getEventColor"
+        :event-name="getEventName"
+        event-more-text="Afficher plus..."
         @click:event="showEvent"
         @click:more="viewDay"
         @click:date="viewDay"
         @change="updateCalendar"
-      >
-        <template #event="{ event }">
-          <v-row class="px-1">
-            <v-col>
-              <strong>{{ getEventTime(event) }}</strong>
-            </v-col>
-            <v-col class="text-center">
-              {{ event.name }}
-            </v-col>
-            <v-col class="text-right">
-              <strong>{{ getEventSubscription(event) }}</strong>
-            </v-col>
-          </v-row>
-        </template>
-      </v-calendar>
+      ></v-calendar>
       <v-menu
         v-model="selectedOpen"
         :close-on-content-click="false"
@@ -160,6 +148,11 @@ export default mixins(eventMethods).extend({
     viewDay({ date }: { date: string }): void {
       this.value = date
       this.type = 'day'
+    },
+    getEventName({ input: event }: { input: IEvent }) {
+      const subscribed = this.getEventNumberUsers(event)
+      const required = event.tutorsRequired ? `/${event.tutorsRequired}` : ''
+      return `${subscribed}${required} - ${event.name}`
     },
     showEvent({
       nativeEvent,
