@@ -121,6 +121,7 @@
             large
             cancel-text="Annuler"
             save-text="Enregistrer"
+            @open="newUserRoles = getUserRolesNames(user)"
             @save="updateUserRoles(user)"
           >
             <v-chip
@@ -135,13 +136,12 @@
             </v-chip>
             <template #input>
               <v-select
-                :value="getUserRolesNames(user)"
+                v-model="newUserRoles"
                 :items="userRolesList"
                 label="Modifier"
                 :menu-props="{ top: true, offsetY: true }"
                 hide-details
                 multiple
-                @input="val => newUserRoles = val"
               >
                 <template #selection="{ item: roleName }">
                   <v-chip
