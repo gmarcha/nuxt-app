@@ -15,24 +15,24 @@
         Now
       </v-btn>
       <v-select
-        v-model="type"
-        :items="types"
+        v-model="typeSelected"
+        :items="typeList"
+        label="Format"
         dense
         outlined
         hide-details
         class="ma-2"
-        label="Date format"
       ></v-select>
       <v-spacer />
       <v-select
         v-if="!isMobile"
         v-model="categoriesSelected"
         :items="categoriesNames"
+        label="Filtres"
         multiple
         dense
         outlined
         hide-details
-        label="Filter"
         class="ma-2"
       ></v-select>
       <v-dialog v-if="isCalendar" :fullscreen="isMobile" max-width="650">
@@ -99,7 +99,8 @@ export default mixins(eventMethods).extend({
   data: () => ({
     value: '',
     type: 'month',
-    types: ['month', 'week', 'day'],
+    typeSelected: 'Mois',
+    typeList: ['Mois', 'Semaine', 'Jour'],
     weekday: [1, 2, 3, 4, 5, 6, 0],
     categoriesSelected: [] as string[],
     selectedOpen: false,
@@ -131,6 +132,21 @@ export default mixins(eventMethods).extend({
       this.$nextTick(() => {
         ;(this.$refs.calendar as any).scrollToTime('06:00')
       })
+    },
+    typeSelected(newType: string) {
+      switch(newType) {
+        case 'Mois':
+          this.type = 'month'
+          break
+        case 'Semaine':
+          this.type = 'week'
+          break
+        case 'Jour':
+          this.type = 'day'
+          break
+        default:
+          this.type = 'month'
+      }
     },
   },
 
