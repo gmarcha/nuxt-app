@@ -114,7 +114,7 @@ More information about the usage of this directory in [the documentation](https:
 ---
 
 - **Axios**\
-  Axios is a promise based HTTP client. It allows to perform HTTP requests either in a browser (using `XMLHttpRequest` internally) or in a `Node.js` environment (with `http` library).\
+  Axios is a promise based HTTP client. It allows to perform HTTP requests either in a browser (using `XMLHttpRequest` internally) or in a `Node.js` environment (with `http` library internally).\
   _Links to axios [documentation](https://axios-http.com/docs/intro) and to nuxt/axios [documentation](https://axios.nuxtjs.org/)._
 
 - **DayJS**\
