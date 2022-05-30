@@ -66,7 +66,7 @@ export default Vue.extend({
   methods: {
     login() {
       this.loading = true
-      window.location.href = `https://tutor.localhost/api/v2/auth/login`
+      window.location.href = `https://tutor.localhost:8080/api/v2/auth/login`
     },
     ...mapMutations({
       setSnackbar: 'snackbar/SET_SHOW',
