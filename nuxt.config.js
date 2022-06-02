@@ -85,8 +85,9 @@ export default {
   // },
 
   publicRuntimeConfig: {
+    serverLogin: process.env.SERVER_LOGIN,
     axios: {
-      browserBaseURL: 'https://tutor.localhost/api/v2/',
+      browserBaseURL: process.env.SERVER_BASEURL,
     },
   },
 
@@ -99,12 +100,12 @@ export default {
   axios: {
     proxy: true,
     credentials: true,
-    prefix: 'https://tutor.localhost/api/v2/',
+    prefix: process.env.SERVER_BASEURL,
   },
 
-  proxy: {
-    '/api/v2/': 'https://tutor.localhost/',
-  },
+  // proxy: {
+  //   '/api/v2/': 'https://tutor.localhost/',
+  // },
 
   dayjs: {
     locales: ['fr'],
