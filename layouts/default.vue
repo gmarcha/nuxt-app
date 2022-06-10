@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-app-bar app height="64">
       <v-toolbar-title v-text="title" />
       <v-spacer />
